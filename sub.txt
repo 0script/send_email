@@ -1,0 +1,4 @@
+This is the subject
+Hello
+Sended from the bash console
+using python3 and others

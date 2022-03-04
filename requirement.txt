@@ -1,0 +1,5 @@
+parse==1.14.0
+mime==0.1.0
+argparse
+json
+smtplib
