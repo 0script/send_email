@@ -1,39 +1,42 @@
-#send_email
+# send_email
 
-##Table of content
-* [About the project](#about-the-project)
-* [Technologies](#technologies)
-* [Setup](#setup)
+## Table of content
 
-##About the project
+- [About the project](#about-the-project)<!-- - [Technologies](#technologies) -->
+- [Setup](#setup)
 
-    This python3 script allow you to send email from the terminal using a ...json file as configuration file and a .txt file as the subject for the mail.
+## About the project
 
-##Setup
-    
-    * Install required paskage
-    ```
-    $cd send_email
-    $pip install -r requirements.txt
-    ```
-    
-    
-    * create the .json file with your credential (example if .json file)
-    ```→ cat config.json 
-        {
-          "email":"xxx@gmail.com",
-          "password":"xxxxxx",
-          "port":587,
-          "server":"smtp.gmail.com"
-        }
-    ```
+This python3 script allow you to send email from the terminal using a json file as configuration file and a .txt file as the subject for the mail.
 
-    * Create a text file with the subject:
-    ```
-    $echo "The mail to be send " > subject.txt
-    ```
+## Setup
 
-    * Send the mail :
-    ```
-      python3 sending.py receiver@gmail.com -c config.json -s subject.txt
-    ```
+Install required packages
+
+```shell
+cd send_email
+$ pip install -r requirements.txt
+```
+
+Create the .json file with your credentials
+
+```json
+{
+  "email": "xxx@gmail.com",
+  "password": "xxxxxx",
+  "port": 587,
+  "server": "smtp.gmail.com"
+}
+```
+
+Create a text file with the subject:
+
+```shell
+echo "The mail to be send" > subject.txt
+```
+
+Send the mail:
+
+```shell
+python3 sending.py receiver@gmail.com -c config.json -s subject.txt
+```
