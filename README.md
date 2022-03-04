@@ -6,13 +6,18 @@
 * [Setup](#setup)
 
 ##About the project
+
     This python3 script allow you to send email from the terminal using a ...json file as configuration file and a .txt file as the subject for the mail.
+
 ##Setup
+    
     * Install required paskage
     ```
     $cd send_email
     $pip install -r requirements.txt
     ```
+    
+    
     * create the .json file with your credential (example if .json file)
     ```→ cat config.json 
         {
