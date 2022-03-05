@@ -18,7 +18,7 @@ cd send_email
 $ pip install -r requirements.txt
 ```
 
-Create the .json file with your credentials
+Create the config.json file with your credentials
 
 ```json
 {
@@ -32,7 +32,7 @@ Create the .json file with your credentials
 Create a text file with the subject:
 
 ```shell
-echo "The mail to be send" > subject.txt
+echo "The message to be send" > subject.txt
 ```
 
 Send the mail:
