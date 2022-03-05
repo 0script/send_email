@@ -23,12 +23,7 @@ def main(sender_mail,receiver_mail,subject,server,port,password):
     message.attach(MIMEText(str(subject),'plain'))
 
     #Create SMTP session and send the mail
-    print(type(port))
-    #session=smtplib.SMTP(server,port)
-    print(server,type(server))
-    print(server=='smtp.gmail.com')
-    session = smtplib.SMTP('smtp.gmail.com', 587) 
-    print('session start')
+    session = smtplib.SMTP('smtp.gmail.com', 587)
     session.starttls()  #enable security
     session.login(sender_mail,password)
     msg_str=message.as_string()
@@ -67,12 +62,7 @@ if __name__=='__main__':
         exit(1)
 
     config=json.load(args.config)
-
-    print(type(args.subject))
-    print(config['server'])
-    print(config['email'])
-    print(config['port'],type(config['port']))
-    print(config['password'])
+    
     main(sender_mail=config['email'],
             receiver_mail=args.email,
             subject=args.subject,
