@@ -1,4 +1,7 @@
+Hello,
+
 This is the subject
-Hello
-Sended from the bash console
-using python3 and others
+Sended from the bash console using python3.
+Have a blessed day .
+
+Thank you

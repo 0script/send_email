@@ -8,28 +8,29 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-def main(sender_mail,receiver_mail,subject,server,port,password):
+def main(sender_mail,receiver_mail,subject,server,port,password,attachementt):
     'This function will send the mail'
 
-    print(f'Preparing to send mail to {sender_mail} from {receiver_mail} ...')
+    print(f'Preparing to send mail to {receiver_mail} from  {sender_mail}...')
 
     #Setup MIME
     message=MIMEMultipart()
     message['From']=sender_mail
     message['To']=receiver_mail
-    message['Subject']='A test mail sent by Python. It has an attachment.'
+    message['Subject']=attachementt
 
     #Body and Attachements for the mail
-    message.attach(MIMEText(str(subject),'plain'))
+    message.attach(MIMEText(subject,'plain'))
 
     #Create SMTP session and send the mail
+    session=smtplib.SMTP(server,port)
     session = smtplib.SMTP(server, port)
     session.starttls()  #enable security
     session.login(sender_mail,password)
     msg_str=message.as_string()
     session.sendmail(sender_mail,receiver_mail,msg_str)
     session.quit()
-    print(f'Mail successfully Send to {sender_mail}.')
+    print(f'Mail successfully Send to {receiver_mail}.')
 
     return
 
@@ -50,7 +51,13 @@ if __name__=='__main__':
             type=argparse.FileType('r'),
             help='The subject',
             default=None)
-
+    parser.add_argument('-a',
+            '--attach',
+            dest='attach',
+            type=str,
+            help='The Attachement (title/header) of the mail',
+            default='A test mail sent by Python. It has an attachment.')
+    
     args=parser.parse_args()
     if not args.config:
         print('Error : A configuration file in json format is nedeed')
@@ -60,12 +67,14 @@ if __name__=='__main__':
         print('Error : A subject file in plain text format is nedeed')
         parser.print_help()
         exit(1)
-
+    
     config=json.load(args.config)
+    thesubject=''.join(args.subject.readlines())
     
     main(sender_mail=config['email'],
             receiver_mail=args.email,
-            subject=args.subject,
+            subject=thesubject,
             server=config['server'],
             port=config['port'],
-            password=config['password'])
+            password=config['password'],
+            attachementt=args.attach)
