@@ -28,12 +28,12 @@ Change port and server for others smtp providers.
   "port": 587,
   "server": "smtp.gmail.com"
 }
-
-Remove reading write to the config file for other user to protect your credential
-```shell
-$chmod 600 config.json
 ```
 
+Remove reading write to the config file for other user to protect your credential
+
+```shell
+$chmod 600 config.json
 ```
 
 Create a text file with the subject:
