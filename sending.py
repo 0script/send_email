@@ -23,7 +23,7 @@ def main(sender_mail,receiver_mail,subject,server,port,password):
     message.attach(MIMEText(str(subject),'plain'))
 
     #Create SMTP session and send the mail
-    session = smtplib.SMTP('smtp.gmail.com', 587)
+    session = smtplib.SMTP(server, port)
     session.starttls()  #enable security
     session.login(sender_mail,password)
     msg_str=message.as_string()
