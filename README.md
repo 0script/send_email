@@ -18,7 +18,8 @@ cd send_email
 $ pip install -r requirements.txt
 ```
 
-Create the config.json file with your credentials
+Create the config.json file with your credentials . This configuration file is for gmail
+Change port and server for others smtp providers.
 
 ```json
 {
