@@ -38,5 +38,5 @@ echo "The message to be send" > subject.txt
 Send the mail:
 
 ```shell
-python3 sending.py receiver@gmail.com -c config.json -s subject.txt
+python3 sending.py receiver@gmail.com -c config.json -s subject.txt -a 'Attachement Of The Mail : SENDED USING PYTHON3'
 ```
